@@ -23,7 +23,7 @@ namespace Genop
         
     public partial class MainWindow : Window
     {
-        PLC SiemensS7 = new PLC();
+        PLC siemensS7 = new PLC();
         double[] objectParameters = { 0, 0, 0 };
 
         public MainWindow()
@@ -41,7 +41,7 @@ namespace Genop
 
         private void AutoIdentification_Click(object sender, RoutedEventArgs e)
         {
-            objectParameters = SiemensS7.Auto_Identyfication();
+            objectParameters = siemensS7.AutoIdentyfication();
 
             CurrentParam1.Text = objectParameters[0].ToString();
             CurrentParam2.Text = objectParameters[1].ToString();
