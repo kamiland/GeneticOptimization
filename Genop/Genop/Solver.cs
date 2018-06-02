@@ -4,6 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* 
+ * Mathematical model of DC motor:
+ * x1 - rotor current, x2 - angular velocity
+ * x1' = -(Ra / La) * x1 - (Gaf / La) * x2 + (1 / La) * U;
+ * x2' =  (Gaf / J) * x1 - (B / J) * x2 + (1 / J) * Tl;
+*/
+
 namespace Genop
 {
     class Solver
@@ -21,30 +28,62 @@ namespace Genop
         // fixed excitation current ifn = Ufn / Rf
         double ifn;
         // angular velocity, rotor current
-        double angularV, current;
-        double[][] state;
+        double angularVelocity, rotorCurrent;
+
+        double[] x;
+
+        double Gaf;
 
         public Solver()
         {
-            state[0][0] = current;
-            state[0][1] = angularV;
-            ifn = Ufn / Rf;
-            double Gaf = p * Laf * ifn;
-            E = Gaf * angularV;
-            T = Gaf * current;
+            // default parameters
+            Ra = 0.4;   La = 0.02;
+            Rf = 65;    Lf = 65;
+            J = 0.11; B = 0.0053; p = 2;
+            Laf = 0.363;
 
-            // Mathematical Model
-            // [0][x] - prev step, [1][x] - next step
-            state[1][0] = -(Ra / La) * state[0][0] - (Gaf / La) * state[0][1] + (1 / La) * U;
-            state[1][1] = (Gaf / J) * state[0][0] - (B / J) * state[0][1] + (1 / J) * Tl;
+            // initial object values
+            angularVelocity = 0; rotorCurrent = 0;
+            x[0] = rotorCurrent;
+            x[1] = angularVelocity;
+
+            ifn = Ufn / Rf;
+            Gaf = p * Laf * ifn;
+            E = Gaf * angularVelocity;
+            T = Gaf * rotorCurrent;
         }
 
-
-        public double[][] CalculateNextStep()
+        public double calculateRotorCurrent(double x1, double x2, double U)
         {
+            return -(Ra / La) * x1 - (Gaf / La) * x2 + (1 / La) * U;
+        }
 
-            
-            return state;
+        public double calculateAngularVelocity(double x1, double x2, double Tl)
+        {
+            return (Gaf / J) * x1 - (B / J) * x2 + (1 / J) * Tl;
+        }
+
+        public double[] CalculateNextStep(double h = 0.01)
+        {
+            double[][] k = new double[2][];
+
+            // rotorCurrent
+            k[0][0] = h * calculateRotorCurrent(x[1], x[2], U);
+            k[0][1] = h * calculateRotorCurrent(x[1] + k[0][0] / 2, x[2] + k[0][0] / 2, U);
+            k[0][2] = h * calculateRotorCurrent(x[1] + k[0][1] / 2, x[2] + k[0][1] / 2, U);
+            k[0][3] = h * calculateRotorCurrent(x[1] + k[0][2], x[2] + k[0][2], U);
+
+            //angular velocity
+            k[1][0] = h * calculateAngularVelocity(x[1], x[2], U);
+            k[1][1] = h * calculateAngularVelocity(x[1] + k[1][0] / 2, x[2] + k[1][0] / 2, U);
+            k[1][2] = h * calculateAngularVelocity(x[1] + k[1][1] / 2, x[2] + k[1][1] / 2, U);
+            k[1][3] = h * calculateAngularVelocity(x[1] + k[1][2], x[2] + k[1][2], U);
+
+            for (int i = 0; i < 2; i++)
+            {
+                x[i] = x[i] + (k[i][0] + 2 * k[i][1] + 2 * k[i][2] + k[i][3]) / 6;
+            }
+            return x;
         }
     }
 }
