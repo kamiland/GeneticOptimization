@@ -24,7 +24,7 @@ namespace Genop
         // Ltf - mutual inductance
         double Laf;
         //  T - drive torque, p - number of pole pairs, B - damping constant, Tl - moment load, J - moment of inertia
-        double T, p, B, J;
+        double T, p, B, Tl, J;
         // fixed excitation current ifn = Ufn / Rf
         double ifn;
         // angular velocity, rotor current
