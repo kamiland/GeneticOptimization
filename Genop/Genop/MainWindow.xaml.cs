@@ -67,14 +67,16 @@ namespace Genop
             objectParameters[6] = Convert.ToDouble(User_p.Text);
             objectParameters[7] = Convert.ToDouble(User_Laf.Text);
 
-            Current_Ra.Text = User_Ra.Text;
-            Current_La.Text = User_La.Text;
-            Current_Rf.Text = User_Rf.Text;
-            Current_Lf.Text = User_Lf.Text;
-            Current_J.Text = User_J.Text;
-            Current_B.Text = User_B.Text;
-            Current_p.Text = User_p.Text;
-            Current_Laf.Text = User_Laf.Text;
+            simulatorDC.GetUserParameters(objectParameters);
+
+            Current_Ra.Text = Convert.ToString(simulatorDC.RK4.Ra);
+            Current_La.Text = Convert.ToString(simulatorDC.RK4.La);
+            Current_Rf.Text = Convert.ToString(simulatorDC.RK4.Rf);
+            Current_Lf.Text = Convert.ToString(simulatorDC.RK4.Lf);
+            Current_J.Text = Convert.ToString(simulatorDC.RK4.J);
+            Current_B.Text = Convert.ToString(simulatorDC.RK4.B);
+            Current_p.Text = Convert.ToString(simulatorDC.RK4.p);
+            Current_Laf.Text = Convert.ToString(simulatorDC.RK4.Laf);
         }
 
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)

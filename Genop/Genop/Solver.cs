@@ -18,13 +18,13 @@ namespace Genop
         // U - supply voltage, E - electromotive force
         double U, E;
         // La - rotor inductance, Ra - rotor resistance, Ua - rotor voltage
-        double La, Ra, Ua;
+        public double La, Ra, Ua;
         // Lf - excitation induction, Rf - excitation resistance, If - excitation current 
-        double Lf, Rf, If, Ufn;
+        public double Lf, Rf, If, Ufn;
         // Ltf - mutual inductance
-        double Laf;
-        //  T - drive torque, p - number of pole pairs, B - damping constant, Tl - moment load, J - moment of inertia
-        double T, p, B, Tl, J;
+        public double Laf;
+        //  T - drive torque, B - damping constant, p - number of pole pairs, Tl - moment load, J - moment of inertia
+        public double T, B, p, Tl, J;
         // fixed excitation current ifn = Ufn / Rf
         double ifn;
         // angular velocity, rotor current
@@ -39,7 +39,8 @@ namespace Genop
             // default parameters
             Ra = 0.4;   La = 0.02;
             Rf = 65;    Lf = 65;
-            J = 0.11; B = 0.0053; p = 2;
+            J = 0.11; B = 0.0053;
+            p = 2;
             Laf = 0.363;
             Ufn = 110;
 
