@@ -25,7 +25,7 @@ namespace Genop
     {
         PLC siemensS7 = new PLC();
         Simulator simulatorDC = new Simulator();
-        double[] objectParameters = { 0, 0, 0 };
+        double[] objectParameters = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
         public MainWindow()
         {
@@ -47,6 +47,11 @@ namespace Genop
             Current_Ra.Text = objectParameters[0].ToString();
             Current_La.Text = objectParameters[1].ToString();
             Current_Rf.Text = objectParameters[2].ToString();
+            Current_Lf.Text = objectParameters[3].ToString();
+            Current_J.Text = objectParameters[4].ToString();
+            Current_B.Text = objectParameters[5].ToString();
+            Current_p.Text = objectParameters[6].ToString();
+            Current_Laf.Text = objectParameters[7].ToString();
 
             MessageBox.Show("Identification done.");
         }
@@ -56,10 +61,20 @@ namespace Genop
             objectParameters[0] = Convert.ToDouble(User_Ra.Text);
             objectParameters[1] = Convert.ToDouble(User_La.Text);
             objectParameters[2] = Convert.ToDouble(User_Rf.Text);
+            objectParameters[3] = Convert.ToDouble(User_Lf.Text);
+            objectParameters[4] = Convert.ToDouble(User_J.Text);
+            objectParameters[5] = Convert.ToDouble(User_B.Text);
+            objectParameters[6] = Convert.ToDouble(User_p.Text);
+            objectParameters[7] = Convert.ToDouble(User_Laf.Text);
 
             Current_Ra.Text = User_Ra.Text;
             Current_La.Text = User_La.Text;
             Current_Rf.Text = User_Rf.Text;
+            Current_Lf.Text = User_Lf.Text;
+            Current_J.Text = User_J.Text;
+            Current_B.Text = User_B.Text;
+            Current_p.Text = User_p.Text;
+            Current_Laf.Text = User_Laf.Text;
         }
 
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)
