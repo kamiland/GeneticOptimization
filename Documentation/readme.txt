@@ -1,2 +1,1 @@
-directory for latex and pdf documents
-test_XD
+directory for tex and pdf documents.
