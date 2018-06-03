@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace Genop
 {
-    class Simulator : Solver
+    class Simulator
     {
         Controller PID = new Controller();
+        Solver RK4 = new Solver();
 
-
-        double Simulate()
+        public double[] Simulate()
         {
+            
+            RK4.x =  RK4.CalculateNextStep(220);
 
-            return 0;
+            return RK4.x;
         }
 
     }

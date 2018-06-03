@@ -24,6 +24,7 @@ namespace Genop
     public partial class MainWindow : Window
     {
         PLC siemensS7 = new PLC();
+        Simulator simulatorDC = new Simulator();
         double[] objectParameters = { 0, 0, 0 };
 
         public MainWindow()
@@ -59,6 +60,24 @@ namespace Genop
             CurrentParam1.Text = UserParam1.Text;
             CurrentParam2.Text = UserParam2.Text;
             CurrentParam3.Text = UserParam3.Text;
+        }
+
+        private void BtnSimulate_Click(object sender, RoutedEventArgs e)
+        {
+            System.IO.TextWriter current = new System.IO.StreamWriter("current.txt");
+            System.IO.TextWriter angular = new System.IO.StreamWriter("angular.txt");
+            double[] x;
+            for (int i = 0; i < 500; i++)
+            {
+                x = simulatorDC.Simulate();
+                // write lines of text to the file
+                current.WriteLine(x[0]);
+                angular.WriteLine(x[1]);
+            }
+            MessageBox.Show("Simulation done.");
+            // close the stream     
+            current.Close();
+            angular.Close();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

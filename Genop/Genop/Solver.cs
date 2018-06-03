@@ -30,9 +30,9 @@ namespace Genop
         // angular velocity, rotor current
         double angularVelocity, rotorCurrent;
 
-        double[] x;
-
         double Gaf;
+
+        public double[] x = new double[2];
 
         public Solver()
         {
@@ -43,7 +43,7 @@ namespace Genop
             Laf = 0.363;
 
             // initial object values
-            angularVelocity = 0; rotorCurrent = 0;
+            rotorCurrent = 0; angularVelocity = 0; 
             x[0] = rotorCurrent;
             x[1] = angularVelocity;
 
@@ -63,25 +63,25 @@ namespace Genop
             return (Gaf / J) * x1 - (B / J) * x2 + (1 / J) * Tl;
         }
 
-        public double[] CalculateNextStep(double h = 0.01)
+        public double[] CalculateNextStep(double U, double h = 0.001)
         {
-            double[][] k = new double[2][];
+            double[,] k = new double[2, 4];
 
             // rotorCurrent
-            k[0][0] = h * calculateRotorCurrent(x[1], x[2], U);
-            k[0][1] = h * calculateRotorCurrent(x[1] + k[0][0] / 2, x[2] + k[0][0] / 2, U);
-            k[0][2] = h * calculateRotorCurrent(x[1] + k[0][1] / 2, x[2] + k[0][1] / 2, U);
-            k[0][3] = h * calculateRotorCurrent(x[1] + k[0][2], x[2] + k[0][2], U);
+            k[0, 0] = h * calculateRotorCurrent(x[0], x[1], U);
+            k[0, 1] = h * calculateRotorCurrent(x[0] + k[0, 0] / 2, x[1] + k[0, 0] / 2, U);
+            k[0, 2] = h * calculateRotorCurrent(x[0] + k[0, 1] / 2, x[1] + k[0, 1] / 2, U);
+            k[0, 3] = h * calculateRotorCurrent(x[0] + k[0, 2], x[1] + k[0, 2], U);
 
-            //angular velocity
-            k[1][0] = h * calculateAngularVelocity(x[1], x[2], U);
-            k[1][1] = h * calculateAngularVelocity(x[1] + k[1][0] / 2, x[2] + k[1][0] / 2, U);
-            k[1][2] = h * calculateAngularVelocity(x[1] + k[1][1] / 2, x[2] + k[1][1] / 2, U);
-            k[1][3] = h * calculateAngularVelocity(x[1] + k[1][2], x[2] + k[1][2], U);
+            // angular velocity
+            k[1, 0] = h * calculateAngularVelocity(x[0], x[1], U);
+            k[1, 1] = h * calculateAngularVelocity(x[0] + k[1, 0] / 2, x[1] + k[1, 0] / 2, U);
+            k[1, 2] = h * calculateAngularVelocity(x[0] + k[1, 1] / 2, x[1] + k[1, 1] / 2, U);
+            k[1, 3] = h * calculateAngularVelocity(x[0] + k[1, 2], x[1] + k[1, 2], U);
 
             for (int i = 0; i < 2; i++)
             {
-                x[i] = x[i] + (k[i][0] + 2 * k[i][1] + 2 * k[i][2] + k[i][3]) / 6;
+                x[i] = x[i] + (k[i, 0] + 2 * k[i, 1] + 2 * k[i, 2] + k[i, 3]) / 6;
             }
             return x;
         }
