@@ -67,7 +67,7 @@ namespace Genop
             System.IO.TextWriter current = new System.IO.StreamWriter("current.txt");
             System.IO.TextWriter angular = new System.IO.StreamWriter("angular.txt");
             double[] x;
-            for (int i = 0; i < 500; i++)
+            for (int i = 0; i < 1500; i++)
             {
                 x = simulatorDC.Simulate();
                 // write lines of text to the file

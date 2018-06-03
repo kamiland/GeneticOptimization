@@ -24,7 +24,7 @@ namespace Genop
         // Ltf - mutual inductance
         double Laf;
         //  T - drive torque, p - number of pole pairs, B - damping constant, Tl - moment load, J - moment of inertia
-        double T, p, B, Tl, J;
+        double T, p, B, J;
         // fixed excitation current ifn = Ufn / Rf
         double ifn;
         // angular velocity, rotor current
@@ -41,6 +41,7 @@ namespace Genop
             Rf = 65;    Lf = 65;
             J = 0.11; B = 0.0053; p = 2;
             Laf = 0.363;
+            Ufn = 110;
 
             // initial object values
             rotorCurrent = 0; angularVelocity = 0; 
@@ -58,7 +59,7 @@ namespace Genop
             return -(Ra / La) * x1 - (Gaf / La) * x2 + (1 / La) * U;
         }
 
-        public double calculateAngularVelocity(double x1, double x2, double Tl)
+        public double calculateAngularVelocity(double x1, double x2, double Tl = 0)
         {
             return (Gaf / J) * x1 - (B / J) * x2 + (1 / J) * Tl;
         }
@@ -74,10 +75,10 @@ namespace Genop
             k[0, 3] = h * calculateRotorCurrent(x[0] + k[0, 2], x[1] + k[0, 2], U);
 
             // angular velocity
-            k[1, 0] = h * calculateAngularVelocity(x[0], x[1], U);
-            k[1, 1] = h * calculateAngularVelocity(x[0] + k[1, 0] / 2, x[1] + k[1, 0] / 2, U);
-            k[1, 2] = h * calculateAngularVelocity(x[0] + k[1, 1] / 2, x[1] + k[1, 1] / 2, U);
-            k[1, 3] = h * calculateAngularVelocity(x[0] + k[1, 2], x[1] + k[1, 2], U);
+            k[1, 0] = h * calculateAngularVelocity(x[0], x[1], 0);
+            k[1, 1] = h * calculateAngularVelocity(x[0] + k[1, 0] / 2, x[1] + k[1, 0] / 2, 0);
+            k[1, 2] = h * calculateAngularVelocity(x[0] + k[1, 1] / 2, x[1] + k[1, 1] / 2, 0);
+            k[1, 3] = h * calculateAngularVelocity(x[0] + k[1, 2], x[1] + k[1, 2], 0);
 
             for (int i = 0; i < 2; i++)
             {
