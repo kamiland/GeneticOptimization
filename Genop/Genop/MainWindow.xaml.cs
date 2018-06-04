@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace Genop
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Klasa odpowiadająca za funkcjonalnośc interfejsu użytkownika
     /// </summary>
     
         
