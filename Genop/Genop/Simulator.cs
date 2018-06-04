@@ -5,7 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Genop
-{
+{   
+    /*
+    *   Klasa Symulator wykorzystuje algorytm Rungego-Kutty do wygenerowania przebiegu obiektu
+    */
     class Simulator
     {
         Controller PID = new Controller();

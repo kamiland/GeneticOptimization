@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Genop
 {
+    /*
+     *  Klasa Controller implementuje algorytm sterujący typu PID do sterowania obiektem
+     */ 
     class Controller
     {
         double Kp, Ti, Td;

@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace Genop
 {
+    /*
+     * Klasa Solver implementuje algorytm Rungego-Kutty dla obiektu silnika DC
+     */
     class Solver
     {
         // U - supply voltage, E - electromotive force

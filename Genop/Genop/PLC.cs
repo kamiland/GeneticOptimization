@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Genop
 {
+    /*
+     * Klasa PLC odpowiada za komunikację sterownika PLC z aplikacją
+     */
     public class PLC
     {
         Random rnd = new Random();
