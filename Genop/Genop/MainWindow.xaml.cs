@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace Genop
 {
     /// <summary>
-    /// Klasa odpowiadająca za funkcjonalnośc interfejsu użytkownika
+    /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     
         
@@ -81,10 +81,9 @@ namespace Genop
 
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)
         {
-
-            simulatorDC.Simulate(1000);
-
-            MessageBox.Show("Simulation done.");
+            Window1 graphWindow = new Window1();
+            graphWindow.Show();
+            //MessageBox.Show("Simulation done.");
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
