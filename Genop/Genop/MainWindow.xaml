@@ -51,6 +51,7 @@
         <TextBox x:Name="Current_B" HorizontalAlignment="Left" Height="35" Margin="426.4,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
         <TextBox x:Name="Current_p" HorizontalAlignment="Left" Height="35" Margin="226.4,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
         <TextBox x:Name="Current_Laf" HorizontalAlignment="Left" Height="35" Margin="326.4,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
+
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="20,135,0,0" TextWrapping="Wrap" Text="Ra" VerticalAlignment="Top" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="121,135,0,0" TextWrapping="Wrap" Text="La" VerticalAlignment="Top" Width="70"/>
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="6.4,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.Column="1"><Run Text="R"/><Run Text="f"/></TextBlock>
@@ -65,8 +66,6 @@
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="225.4,203,0,0" TextWrapping="Wrap" Text="Lf" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="326.4,203,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="425.4,203,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="225.4,267,0,0" TextWrapping="Wrap" Text="p" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="326.4,267,0,0" TextWrapping="Wrap" Text="Laf" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
 
 
 

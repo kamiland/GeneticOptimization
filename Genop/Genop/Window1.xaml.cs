@@ -33,16 +33,12 @@ namespace Genop
     }
 
     /*
-     * Klasa uruchamiająca symulacje oraz wizualizująca dane na wykresach
+     * Klasa uruchamiająca wizualizujące danych na wykresach
      */
     public class MainViewModel
     {
         public MainViewModel()
         {
-            // Symulacja
-            Simulator simulatorDC = new Simulator();
-            simulatorDC.Simulate(1000);
-
             // Stworz wykres
             var tmp = new PlotModel { Title = "Wykres wartości", Subtitle = "prądu i prędkości silnika" };
 

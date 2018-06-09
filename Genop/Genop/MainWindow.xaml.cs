@@ -26,6 +26,8 @@ namespace Genop
         PLC siemensS7 = new PLC();
         Simulator simulatorDC = new Simulator();
         double[] objectParameters = { 0, 0, 0, 0, 0, 0, 0, 0 };
+        long numberOfProbes = 1000;
+        double timeStep = 0.001;
 
         public MainWindow()
         {
@@ -81,9 +83,10 @@ namespace Genop
 
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)
         {
+            simulatorDC.Simulate(numberOfProbes, timeStep);
+
             Window1 graphWindow = new Window1();
             graphWindow.Show();
-            //MessageBox.Show("Simulation done.");
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

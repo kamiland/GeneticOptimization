@@ -35,7 +35,7 @@ namespace Genop
             if (0 != objectParameters[7])
                 RK4.Laf = objectParameters[7];
         }
-        public double[] Simulate(int numberOfProbes, double timeStep = 0.001)
+        public double[] Simulate(long numberOfProbes, double timeStep = 0.001)
         {
             System.IO.TextWriter current = new System.IO.StreamWriter("current.txt");
             System.IO.TextWriter angular = new System.IO.StreamWriter("angular.txt");
