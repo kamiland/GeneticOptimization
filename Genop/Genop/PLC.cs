@@ -14,7 +14,7 @@ namespace Genop
         Random rnd = new Random();
         public double[] AutoIdentyfication()
         {
-            Console.WriteLine("Indetification running...");
+            Console.WriteLine("Identyfication running...");
 
             double[] objectParameters = { 0, 0, 0, 0, 0, 0, 0, 0 };
 
