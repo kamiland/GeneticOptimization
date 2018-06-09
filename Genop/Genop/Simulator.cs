@@ -14,7 +14,7 @@ namespace Genop
     {
         Controller PID = new Controller(5, 0.2, 0.001);
         public Solver RK4 = new Solver();
-
+        double setpoint = 100;
         public void GetUserParameters(double[] objectParameters)
         {
             // ugly but works - to change
@@ -34,7 +34,10 @@ namespace Genop
                 RK4.p = objectParameters[6];
             if (0 != objectParameters[7])
                 RK4.Laf = objectParameters[7];
+            if (0 != objectParameters[8])
+                setpoint = objectParameters[8];
         }
+
         public double[] Simulate(long numberOfProbes, double timeStep = 0.001)
         {
             System.IO.TextWriter current = new System.IO.StreamWriter("current.txt");
@@ -44,7 +47,7 @@ namespace Genop
             RK4.x[1] = 0;
             for (int i = 0; i < numberOfProbes; i++)
             {
-                RK4.x = RK4.CalculateNextStep(PID.CalculateOutput(200, RK4.x[1]), timeStep);
+                RK4.x = RK4.CalculateNextStep(PID.CalculateOutput(setpoint, RK4.x[1]), timeStep);
                 current.WriteLine(RK4.x[0]);
                 angular.WriteLine(RK4.x[1]);
             }

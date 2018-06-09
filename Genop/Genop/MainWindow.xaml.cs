@@ -25,7 +25,7 @@ namespace Genop
     {
         PLC siemensS7 = new PLC();
         Simulator simulatorDC = new Simulator();
-        double[] objectParameters = { 0, 0, 0, 0, 0, 0, 0, 0 };
+        double[] objectParameters = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
         long numberOfProbes = 1000;
         double timeStep = 0.001;
 
@@ -68,6 +68,7 @@ namespace Genop
             objectParameters[5] = Convert.ToDouble(User_B.Text);
             objectParameters[6] = Convert.ToDouble(User_p.Text);
             objectParameters[7] = Convert.ToDouble(User_Laf.Text);
+            objectParameters[8] = Convert.ToDouble(User_Setpoint.Text);
 
             simulatorDC.GetUserParameters(objectParameters);
 
