@@ -12,7 +12,7 @@ namespace Genop
     */
     class Simulator
     {
-        Controller PID = new Controller();
+        Controller PID = new Controller(5, 0.2, 0.001);
         public Solver RK4 = new Solver();
 
         public void GetUserParameters(double[] objectParameters)
@@ -44,7 +44,7 @@ namespace Genop
             RK4.x[1] = 0;
             for (int i = 0; i < numberOfProbes; i++)
             {
-                RK4.x = RK4.CalculateNextStep(220, timeStep);
+                RK4.x = RK4.CalculateNextStep(PID.CalculateOutput(200, RK4.x[1]), timeStep);
                 current.WriteLine(RK4.x[0]);
                 angular.WriteLine(RK4.x[1]);
             }
