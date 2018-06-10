@@ -24,6 +24,6 @@ namespace Genop.UnitTests
 
             // Assert
             Assert.IsNotNull(resoult);
-    }
+        }
     }
 }
