@@ -52,7 +52,7 @@ namespace Genop
                 RK4.x = RK4.CalculateNextStep(PID.CalculateOutput(setpoint, RK4.x[1]), timeStep);
                 current.WriteLine(RK4.x[0]);
                 angular.WriteLine(RK4.x[1]);
-                error_int += (setpoint - RK4.x[1]) * timeStep;
+                error_int += (Math.Abs(setpoint - RK4.x[1])) * timeStep;
             }
             current.Close();
             angular.Close();
