@@ -16,6 +16,7 @@ namespace Genop
         Simulator[] next_generation_engines;
         Simulator best = new Simulator();
         double best_fit = 0;
+        int generationCounter = 0;
 
         Random rand_gen = new Random();
         double rand;
@@ -33,21 +34,24 @@ namespace Genop
             for(int i = 0; i<populationSize; i++)
             {
                 engines[i] = new Simulator();
-                engines[i].PID.P = ((rand_gen.NextDouble() * 2.0) - 1.0) * P_range;
+                engines[i].PID.P = ((rand_gen.NextDouble() * 2.0) - 1.0) * P_range; //randomize a P value between -P_range and P_range
                 engines[i].PID.I = ((rand_gen.NextDouble() * 2.0) - 1.0) * I_range;
                 engines[i].PID.D = ((rand_gen.NextDouble() * 2.0) - 1.0) * D_range;
             }
         }
 
-        void do_one_generation() //przeprowadzenie jednej generacji
+        //przeprowadzenie jednej generacji aż do momentu powstania nowej
+        void do_one_generation()
         {
             for (int i = 0; i < populationSize; i++)
                 engines[i].Simulate( number_of_probes );
 
             normalize_fitness();
             next_generation();
+            generationCounter++;
         }
 
+        //utworzenie nowej generacji z bierzącej generacji
         void next_generation()
         {
             normalize_fitness();
@@ -69,6 +73,7 @@ namespace Genop
                 engines[i] = next_generation_engines[i];
         }
 
+        //wybór jednego osobnika z populacji oraz delikatna modyfikacja jego nastaw
         void pick_tweak(int i)
         {
             Simulator parent = new Simulator();
@@ -80,7 +85,7 @@ namespace Genop
                 picked = false;
                 do
                 {
-                    x = (int)(rand_gen.NextDouble() * populationSize); //i can do it like this because Math.random() will never return value = 1, so i will never refer to engines[populationSize]
+                    x = (int)(rand_gen.NextDouble() * populationSize); //i can do it like this because rand_gen.NextDouble() will never return value = 1, so i will never refer to engines[populationSize]
                     if (rand_gen.NextDouble() <= engines[x].fitness)
                     {
                         parent = engines[x];
@@ -93,6 +98,7 @@ namespace Genop
             next_generation_engines[i] = tweak(parent);
         }
 
+        //wybieranie dwóch osobników z populacji oraz krzyżowanie ich
         void pick_and_cross(int i)
         {
             Simulator parent_a = new Simulator();
@@ -129,6 +135,7 @@ namespace Genop
             next_generation_engines[i] = cross(parent_a, parent_b);
         }
 
+        //normalizacja wartości fitness wszystkich osobników tak aby były wartościami od 0 do 1
         void normalize_fitness()
         {
             double max_fit = 0;
@@ -163,6 +170,7 @@ namespace Genop
                 }
         }
 
+        //funkcja tworząca nowy losowy organizm
         void mutatant(int i)
         {
             Simulator child = new Simulator();
@@ -173,6 +181,7 @@ namespace Genop
             else next_generation_engines[i] = best; // 1% chance of picking "best" as a mutant
         }
 
+        //funkcja delikatnie modyfikująca jeden organizm
         Simulator tweak(Simulator parent) 
         {
             Simulator child = new Simulator();
@@ -182,6 +191,7 @@ namespace Genop
             return child;
         }
 
+        //funkcja krzyrzująca dwa organizmy
         Simulator cross(Simulator parent_a, Simulator parent_b)
         {
             Simulator child = new Simulator();
