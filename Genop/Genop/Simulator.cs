@@ -12,9 +12,11 @@ namespace Genop
     */
     public class Simulator
     {
-        Controller PID = new Controller(5, 0.2, 0.001);
+        public Controller PID = new Controller(5, 0.2, 0.001);
         public Solver RK4 = new Solver();
         double setpoint = 100;
+        public double fitness = 0;
+        double error = 0;
         public void GetUserParameters(double[] objectParameters)
         {
             // ugly but works - to change
@@ -50,10 +52,11 @@ namespace Genop
                 RK4.x = RK4.CalculateNextStep(PID.CalculateOutput(setpoint, RK4.x[1]), timeStep);
                 current.WriteLine(RK4.x[0]);
                 angular.WriteLine(RK4.x[1]);
+                error = (setpoint - RK4.x[1]) * timeStep;
             }
             current.Close();
             angular.Close();
-
+            fitness = 1.0 / (error + 1.0);
             return RK4.x;
         }
 

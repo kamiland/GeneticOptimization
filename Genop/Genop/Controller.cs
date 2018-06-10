@@ -12,7 +12,7 @@ namespace Genop
     public class Controller
     {
         double Kp, Ki, Kd;
-        double P, I, D;
+        public double P, I, D;
         double integral, derivative;
         double error, pre_error = 0, controllerOutput = 0;
 
