@@ -59,6 +59,5 @@ namespace Genop
             fitness = 1.0 / (error_int + 1.0);
             return RK4.x;
         }
-
     }
 }

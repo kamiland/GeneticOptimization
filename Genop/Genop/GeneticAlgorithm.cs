@@ -11,7 +11,7 @@ namespace Genop
 {
     public class GeneticAlgorithm
     {
-        static int populationSize;
+        static int populationSize; //ilość osobników w populacji
         Simulator[] engines;
         Simulator[] next_generation_engines;
         Simulator best = new Simulator();
@@ -24,7 +24,7 @@ namespace Genop
         double I_range = 1;
         double D_range = 1;
 
-        int number_of_probes;
+        int number_of_probes; //ilość próbek symulacji
 
         public GeneticAlgorithm(int _numberOfProbes, int _pupulationSize)
         {
@@ -39,7 +39,7 @@ namespace Genop
             }
         }
 
-        void do_one_generation()
+        void do_one_generation() //przeprowadzenie jednej generacji
         {
             for (int i = 0; i < populationSize; i++)
                 engines[i].Simulate( number_of_probes );
@@ -80,7 +80,7 @@ namespace Genop
                 picked = false;
                 do
                 {
-                    x = (int)(rand_gen.NextDouble() * populationSize); //i can do it like this because Math.random() will never return value = 1, so i will never refer to pendulums[dip_count]
+                    x = (int)(rand_gen.NextDouble() * populationSize); //i can do it like this because Math.random() will never return value = 1, so i will never refer to engines[populationSize]
                     if (rand_gen.NextDouble() <= engines[x].fitness)
                     {
                         parent = engines[x];
@@ -166,7 +166,7 @@ namespace Genop
         void mutatant(int i)
         {
             Simulator child = new Simulator();
-            child.PID.P = ((rand_gen.NextDouble() * 2.0) - 1.0) * P_range;
+            child.PID.P = ((rand_gen.NextDouble() * 2.0) - 1.0) * P_range; //randomize a P value between -P_range and P_range
             child.PID.I = ((rand_gen.NextDouble() * 2.0) - 1.0) * I_range;
             child.PID.D = ((rand_gen.NextDouble() * 2.0) - 1.0) * D_range;
             if (rand_gen.NextDouble() > 0.01) next_generation_engines[i] = new Simulator();
@@ -176,9 +176,9 @@ namespace Genop
         Simulator tweak(Simulator parent) 
         {
             Simulator child = new Simulator();
-            child.PID.P = parent.PID.P * (rand_gen.NextDouble() * 2.0) - 1.0;
-            child.PID.I = parent.PID.I * (rand_gen.NextDouble() * 2.0) - 1.0;
-            child.PID.D = parent.PID.D * (rand_gen.NextDouble() * 2.0) - 1.0;
+            child.PID.P = parent.PID.P + (rand_gen.NextDouble() * 2.0) - 1.0; // value of P +- random between 0 and 1
+            child.PID.I = parent.PID.I + (rand_gen.NextDouble() * 2.0) - 1.0;
+            child.PID.D = parent.PID.D + (rand_gen.NextDouble() * 2.0) - 1.0;
             return child;
         }
 
@@ -187,7 +187,7 @@ namespace Genop
             Simulator child = new Simulator();
             double crossing_point;
             crossing_point = rand_gen.NextDouble();
-            child.PID.P = parent_a.PID.P * crossing_point + parent_b.PID.P * (1.0 - crossing_point);
+            child.PID.P = parent_a.PID.P * crossing_point + parent_b.PID.P * (1.0 - crossing_point); // picking a new P value in random spot between parent_a.P and parent_b.P
             crossing_point = rand_gen.NextDouble();
             child.PID.I = parent_a.PID.I * crossing_point + parent_b.PID.I * (1.0 - crossing_point);
             crossing_point = rand_gen.NextDouble();
