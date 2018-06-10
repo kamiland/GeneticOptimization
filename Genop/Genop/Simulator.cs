@@ -10,7 +10,7 @@ namespace Genop
     *   Klasa Symulator wykorzystuje algorytm Rungego-Kutty do wygenerowania przebiegu obiektu
     *	przechowuje ona również cały przebieg wraz z parametrami symulacji np. takimi jak krok solvera
     */
-    class Simulator
+    public class Simulator
     {
         Controller PID = new Controller(5, 0.2, 0.001);
         public Solver RK4 = new Solver();

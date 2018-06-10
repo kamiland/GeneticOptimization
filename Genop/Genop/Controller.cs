@@ -9,7 +9,7 @@ namespace Genop
     /*
      *  Klasa Controller implementuje algorytm sterujący typu PID do sterowania obiektem
      */ 
-    class Controller
+    public class Controller
     {
         double Kp, Ki, Kd;
         double P, I, D;

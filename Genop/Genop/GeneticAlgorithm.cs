@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 */
 namespace Genop
 {
-    class GeneticAlgorithm
+    public class GeneticAlgorithm
     {
         int populationSize;
 
