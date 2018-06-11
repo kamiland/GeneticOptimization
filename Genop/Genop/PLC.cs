@@ -12,6 +12,7 @@ namespace Genop
     public class PLC
     {
         Random rnd = new Random();
+        // metoda wyznacza losowe wartości parametrów i zawraca tablicę z tymi parametrami
         public double[] AutoIdentyfication()
         {
             Console.WriteLine("Identyfication running...");

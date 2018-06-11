@@ -22,7 +22,7 @@ namespace Genop
             Ki = initialKi;
             Kd = initialKd;
         }
-
+        // Metoda wykonująca algorytm PID
         public double CalculateOutput(double setpoint, double pv, double dt = 0.001)
         {
             error = setpoint - pv;

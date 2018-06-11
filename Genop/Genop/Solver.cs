@@ -57,7 +57,7 @@ namespace Genop
             E = Gaf * angularVelocity;
             T = Gaf * rotorCurrent;
         }
-
+        
         public double calculateRotorCurrent(double x1, double x2, double U)
         {
             return -(Ra / La) * x1 - (Gaf / La) * x2 + (1 / La) * U;
@@ -68,6 +68,7 @@ namespace Genop
             return (Gaf / J) * x1 - (B / J) * x2 + (1 / J) * Tl;
         }
 
+        // implementacja algorytmu Rungego-Kutty dla obiektu silnika DC (https://pl.wikipedia.org/wiki/Algorytm_Rungego-Kutty)
         public double[] CalculateNextStep(double U, double h = 0.001)
         {
             double[,] k = new double[2, 4];

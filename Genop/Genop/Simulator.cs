@@ -19,7 +19,6 @@ namespace Genop
         double error_int = 0;
         public void GetUserParameters(double[] objectParameters)
         {
-            // ugly but works - to change
             if(0 != objectParameters[0])
                 RK4.Ra = objectParameters[0];
             if (0 != objectParameters[1])
@@ -47,6 +46,7 @@ namespace Genop
             // initial state
             RK4.x[0] = 0;
             RK4.x[1] = 0;
+            // wykonaj liczbe kroków określoną w numberOfProbes, zapisz pomiary do plików, oblicz całkę uchybu 
             for (int i = 0; i < numberOfProbes; i++)
             {
                 RK4.x = RK4.CalculateNextStep(PID.CalculateOutput(setpoint, RK4.x[1]), timeStep);
@@ -54,8 +54,10 @@ namespace Genop
                 angular.WriteLine(RK4.x[1]);
                 error_int += (Math.Abs(setpoint - RK4.x[1])) * timeStep;
             }
+
             current.Close();
             angular.Close();
+
             fitness = 1.0 / (error_int + 1.0);
             return RK4.x;
         }

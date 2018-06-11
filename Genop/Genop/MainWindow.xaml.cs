@@ -42,6 +42,7 @@ namespace Genop
             Title = e.GetPosition(this).ToString();
         }
 
+        // po kliknięciu [auto identif.] losuje ("identyfikuje") parametry i wpisuje je do ramek w okienku
         private void AutoIdentification_Click(object sender, RoutedEventArgs e)
         {
             objectParameters = siemensS7.AutoIdentyfication();
@@ -58,6 +59,7 @@ namespace Genop
             MessageBox.Show("Identification done.");
         }
 
+        // po kliknięciu  [OK] pobiera dane z ramek usera i przypisuje do obiektu oraz do ramek wyświetlania
         private void BtnUserParamOK_Click(object sender, RoutedEventArgs e)
         {
             objectParameters[0] = Convert.ToDouble(User_Ra.Text);
@@ -82,6 +84,7 @@ namespace Genop
             Current_Laf.Text = Convert.ToString(simulatorDC.RK4.Laf);
         }
 
+        // wywołuje symulację i otwiera nowe okno z wykresem
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)
         {
             simulatorDC.Simulate(numberOfProbes, timeStep);
