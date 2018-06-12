@@ -3,9 +3,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Genop.UnitTests
 {
+    /*
+     * Klasa wykonująca testy jednostkowe
+     * niektórych z metod występujących w
+     * klasie Controller.
+     */
     [TestClass]
     public class SimulatorTests
     {
+        /*
+         * Metoda testująca metodę
+         * Simulate(), kalkulującą dane
+         * i zwracającą wartość liczbową
+         */
         [TestMethod]
         public void Simulate_Calculating_GetValue()
         {

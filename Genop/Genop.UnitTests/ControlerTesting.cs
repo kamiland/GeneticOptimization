@@ -11,6 +11,11 @@ namespace Genop.UnitTests
     [TestClass]
     public class ControlerTests
     {
+        /*
+         * Metoda testująca metodę
+         * CalculateOutput(), kalkulującą dane
+         * i zwracającą wartość liczbową
+         */
         [TestMethod]
         public void CalculateOutput_Calculating_GetingValue()
         {
