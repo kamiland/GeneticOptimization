@@ -17,7 +17,7 @@ namespace Genop
         {
             Console.WriteLine("Identyfication running...");
 
-            double[] objectParameters = { 0, 0, 0, 0, 0, 0, 0, 0 };
+            double[] objectParameters = { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
             for (int i = 0; i < objectParameters.Length; i++)
             {
