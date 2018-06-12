@@ -5,7 +5,7 @@ using Genop;
 
 namespace Genop.UnitTests
 {
-    /*
+    /**
      * Klasa wykonująca testy jednostkowe
      * niektórych z metod występujących w
      * klasie PLC.
@@ -13,7 +13,7 @@ namespace Genop.UnitTests
     [TestClass]
     public class PLCTests
     {
-        /*
+        /**
          * Metoda testująca metodę
          * AutoIdentyfication(), kalkulującą dane
          * i zwracającą wartość liczbową

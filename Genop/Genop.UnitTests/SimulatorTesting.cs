@@ -6,7 +6,7 @@ namespace Genop.UnitTests
     /**
      * Klasa wykonująca testy jednostkowe
      * niektórych z metod występujących w
-     * klasie Controller.
+     * klasie Simulator.
      */
     [TestClass]
     public class SimulatorTests

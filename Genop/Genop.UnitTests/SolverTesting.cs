@@ -10,7 +10,7 @@ namespace Genop.UnitTests
     /**
      * Klasa wykonująca testy jednostkowe
      * niektórych z metod występujących w
-     * klasie Controller.
+     * klasie Solver.
      */
     [TestClass]
     public class SolverTests
