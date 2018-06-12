@@ -15,43 +15,56 @@ namespace Genop
         Simulator[] engines;
         Simulator[] next_generation_engines;
         Simulator best = new Simulator();
+        double[] objectParameters;
         double best_fit = 0;
         int generationCounter = 0;
 
         Random rand_gen = new Random();
         double rand;
 
-        double P_range = 1;
-        double I_range = 1;
-        double D_range = 1;
+        double P_range = 10;
+        double I_range = 10;
+        double D_range = 10;
 
-        int number_of_probes; //ilość próbek symulacji
+        long number_of_probes; //ilość próbek symulacji
 
-        public GeneticAlgorithm(int _numberOfProbes, int _pupulationSize)
+        public GeneticAlgorithm(long _numberOfProbes, int _pupulationSize, double[] _objectParameters)
         {
             number_of_probes = _numberOfProbes;
             populationSize = _pupulationSize;
+            objectParameters = _objectParameters;
+            engines = new Simulator[populationSize];
+            next_generation_engines = new Simulator[populationSize];
+
             for(int i = 0; i<populationSize; i++)
             {
                 engines[i] = new Simulator();
-                engines[i].PID.P = ((rand_gen.NextDouble() * 2.0) - 1.0) * P_range; //randomize a P value between -P_range and P_range
-                engines[i].PID.I = ((rand_gen.NextDouble() * 2.0) - 1.0) * I_range;
-                engines[i].PID.D = ((rand_gen.NextDouble() * 2.0) - 1.0) * D_range;
+                engines[i].GetUserParameters(objectParameters);
+                engines[i].PID.Kp = ((rand_gen.NextDouble() * 2.0) - 1.0) * P_range; //randomize a P value between -P_range and P_range
+                engines[i].PID.Ki = ((rand_gen.NextDouble() * 2.0) - 1.0) * I_range;
+                engines[i].PID.Kd = ((rand_gen.NextDouble() * 2.0) - 1.0) * D_range;
             }
         }
 
         //przeprowadzenie jednej generacji aż do momentu powstania nowej
-        void do_one_generation()
+        public void do_one_generation()
         {
             for (int i = 0; i < populationSize; i++)
-                engines[i].Simulate( number_of_probes );
-
+                engines[i].Simulate( number_of_probes, saveToFile: false);
             normalize_fitness();
             next_generation();
             generationCounter++;
         }
 
-        //utworzenie nowej generacji z bierzącej generacji
+        public void show_best()
+        {
+            best.Simulate(number_of_probes, saveToFile: true);
+
+            Window1 graphWindow = new Window1();
+            graphWindow.Show();
+        }
+
+        //utworzenie nowej generacji z bieżącej generacji
         void next_generation()
         {
             normalize_fitness();
@@ -174,10 +187,11 @@ namespace Genop
         void mutatant(int i)
         {
             Simulator child = new Simulator();
-            child.PID.P = ((rand_gen.NextDouble() * 2.0) - 1.0) * P_range; //randomize a P value between -P_range and P_range
-            child.PID.I = ((rand_gen.NextDouble() * 2.0) - 1.0) * I_range;
-            child.PID.D = ((rand_gen.NextDouble() * 2.0) - 1.0) * D_range;
-            if (rand_gen.NextDouble() > 0.01) next_generation_engines[i] = new Simulator();
+            child.GetUserParameters(objectParameters);
+            child.PID.Kp = ((rand_gen.NextDouble() * 2.0) - 1.0) * P_range; //randomize a P value between -P_range and P_range
+            child.PID.Ki = ((rand_gen.NextDouble() * 2.0) - 1.0) * I_range;
+            child.PID.Kd = ((rand_gen.NextDouble() * 2.0) - 1.0) * D_range;
+            if (rand_gen.NextDouble() > 0.01) next_generation_engines[i] = child;
             else next_generation_engines[i] = best; // 1% chance of picking "best" as a mutant
         }
 
@@ -185,9 +199,10 @@ namespace Genop
         Simulator tweak(Simulator parent) 
         {
             Simulator child = new Simulator();
-            child.PID.P = parent.PID.P + (rand_gen.NextDouble() * 2.0) - 1.0; // value of P +- random between 0 and 1
-            child.PID.I = parent.PID.I + (rand_gen.NextDouble() * 2.0) - 1.0;
-            child.PID.D = parent.PID.D + (rand_gen.NextDouble() * 2.0) - 1.0;
+            child.GetUserParameters(objectParameters);
+            child.PID.Kp = parent.PID.Kp + (rand_gen.NextDouble() * 2.0) - 1.0; // value of P +- random between 0 and 1
+            child.PID.Ki = parent.PID.Ki + (rand_gen.NextDouble() * 2.0) - 1.0;
+            child.PID.Kd = parent.PID.Kd + (rand_gen.NextDouble() * 2.0) - 1.0;
             return child;
         }
 
@@ -195,13 +210,14 @@ namespace Genop
         Simulator cross(Simulator parent_a, Simulator parent_b)
         {
             Simulator child = new Simulator();
+            child.GetUserParameters(objectParameters);
             double crossing_point;
             crossing_point = rand_gen.NextDouble();
-            child.PID.P = parent_a.PID.P * crossing_point + parent_b.PID.P * (1.0 - crossing_point); // picking a new P value in random spot between parent_a.P and parent_b.P
+            child.PID.Kp = parent_a.PID.Kp * crossing_point + parent_b.PID.Kp * (1.0 - crossing_point); // picking a new P value in random spot between parent_a.P and parent_b.P
             crossing_point = rand_gen.NextDouble();
-            child.PID.I = parent_a.PID.I * crossing_point + parent_b.PID.I * (1.0 - crossing_point);
+            child.PID.Ki = parent_a.PID.Ki * crossing_point + parent_b.PID.Ki * (1.0 - crossing_point);
             crossing_point = rand_gen.NextDouble();
-            child.PID.D = parent_a.PID.D * crossing_point + parent_b.PID.D * (1.0 - crossing_point);
+            child.PID.Kd = parent_a.PID.Kd * crossing_point + parent_b.PID.Kd * (1.0 - crossing_point);
             return child;
         }
     }

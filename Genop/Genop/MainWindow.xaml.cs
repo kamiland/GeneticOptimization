@@ -91,6 +91,10 @@ namespace Genop
 
             Window1 graphWindow = new Window1();
             graphWindow.Show();
+
+            GeneticAlgorithm Optimization = new GeneticAlgorithm(numberOfProbes, 100, objectParameters);
+            Optimization.do_one_generation();
+            Optimization.show_best();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

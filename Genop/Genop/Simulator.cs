@@ -39,10 +39,17 @@ namespace Genop
                 setpoint = objectParameters[8];
         }
 
-        public double[] Simulate(long numberOfProbes, double timeStep = 0.001)
+        public double[] Simulate(long numberOfProbes, double timeStep = 0.001, bool saveToFile = true)
         {
-            System.IO.TextWriter current = new System.IO.StreamWriter("current.txt");
-            System.IO.TextWriter angular = new System.IO.StreamWriter("angular.txt");
+            System.IO.TextWriter current = null;
+            System.IO.TextWriter angular = null;
+            if (saveToFile)
+            {
+                current = new System.IO.StreamWriter("current.txt");
+                angular = new System.IO.StreamWriter("angular.txt");
+            }
+                
+   
             // initial state
             RK4.x[0] = 0;
             RK4.x[1] = 0;
@@ -50,13 +57,18 @@ namespace Genop
             for (int i = 0; i < numberOfProbes; i++)
             {
                 RK4.x = RK4.CalculateNextStep(PID.CalculateOutput(setpoint, RK4.x[1]), timeStep);
-                current.WriteLine(RK4.x[0]);
-                angular.WriteLine(RK4.x[1]);
+                if(saveToFile)
+                {
+                    current.WriteLine(RK4.x[0]);
+                    angular.WriteLine(RK4.x[1]);
+                }
                 error_int += (Math.Abs(setpoint - RK4.x[1])) * timeStep;
             }
-
-            current.Close();
-            angular.Close();
+            if (saveToFile)
+            {
+                current.Close();
+                angular.Close();
+            }
 
             fitness = 1.0 / (error_int + 1.0);
             return RK4.x;
