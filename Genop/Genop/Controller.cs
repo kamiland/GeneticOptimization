@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Genop
 {
-    /*
-     *  Klasa Controller implementuje algorytm sterujący typu PID do sterowania obiektem
-     */ 
+    /**
+     *
+     * Klasa Controller implementuje algorytm regulatora PID.
+     *
+     *\version Wersja alfa.
+     */
     public class Controller
     {
         public double Kp, Ki, Kd;
@@ -22,7 +25,19 @@ namespace Genop
             Ki = initialKi;
             Kd = initialKd;
         }
-        // Metoda wykonująca algorytm PID
+        
+         /**
+         * \brief Wyznacza sygnał sterujący regulatora PID.
+         *
+         * Pobiera dwie wartości double         *
+         * \param[in] error wartość uchybu
+         * \param[in] dt krok wykonywania iteracji (odstęp czasu)
+         * 
+         * \return ControllerOutput - wartość sygnału sterującego
+
+         * \attention wartości zmiennych wyskalowane są w podstawowych jednostkach układu SI
+         *            
+         */
         public double CalculateOutput(double setpoint, double pv, double dt = 0.001)
         {
             error = setpoint - pv;

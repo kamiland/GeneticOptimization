@@ -3,15 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-/*
-*	Klasa GeneticAlgorithm tworzy osobniki populacji a nastepnie przeprowadza na nich optymalizację poprzez selekcję oraz mutację.
-*	Ostatecznie tworzona jest nowa generacja i cały cykl się powtarza aż do znalezienia zadowającego rozwiązania
-*/
+
 namespace Genop
 {
+
+
+/**
+*
+*	Klasa GeneticAlgorithm tworzy osobniki populacji a nastepnie przeprowadza na nich optymalizację poprzez selekcję oraz mutację.
+*	Ostatecznie tworzona jest nowa generacja i cały cykl się powtarza aż do znalezienia zadowającego rozwiązania
+*
+*/
     public class GeneticAlgorithm
     {
-        static int populationSize; //ilość osobników w populacji
+        static int populationSize; /**ilość osobników w populacji   */
         Simulator[] engines;
         Simulator[] next_generation_engines;
         Simulator best = new Simulator();
@@ -26,8 +31,21 @@ namespace Genop
         double I_range = 10;
         double D_range = 10;
 
-        long number_of_probes; //ilość próbek symulacji
+        long number_of_probes; /** ilość próbek symulacji   */
 
+        /**
+         * \brief Metoda optymalizująca nastawy regulatora PID
+         *
+         * Pobiera trzy argumenty 
+         *
+         * \param[in] long _numberOfProbes - ilość próbek
+         * \param[in] int _pupulationSize - rozmiar populacji na której bazuje optymalizator
+         * \param[in] double[] _objectParameters - tablica z parametrami obiektu (silnika DC)
+         * \return Wartości nastaw PID
+
+         * \attention wartości zmiennych wyskalowane są w podstawowych jednostkach układu SI
+         *            
+         */
         public GeneticAlgorithm(long _numberOfProbes, int _pupulationSize, double[] _objectParameters)
         {
             number_of_probes = _numberOfProbes;
@@ -45,8 +63,13 @@ namespace Genop
                 engines[i].PID.Kd = ((rand_gen.NextDouble() * 2.0) - 1.0) * D_range;
             }
         }
-
-        //przeprowadzenie jednej generacji aż do momentu powstania nowej
+         /**
+         *\fn
+         *
+         * Przeprowadzenie jednej generacji aż do momentu powstania nowej
+         *
+         *            
+         */
         public void do_one_generation()
         {
             for (int i = 0; i < populationSize; i++)
@@ -56,6 +79,13 @@ namespace Genop
             generationCounter++;
         }
 
+         /**
+         *\fn
+         *
+         * Wyświetla najlepszy wynik operacji numerycznych.
+         *
+         *            
+         */
         public double[] show_best()
         {
             best.Simulate(number_of_probes, saveToFile: true);
@@ -66,8 +96,14 @@ namespace Genop
             return PID;
         }
 
-
-        //utworzenie nowej generacji z bieżącej generacji
+         /**
+         *\fn
+         *
+         * Utworzenie nowej generacji z bieżącej generacji
+         *
+         *            
+         */
+        
         void next_generation()
         {
             normalize_fitness();
@@ -76,20 +112,28 @@ namespace Genop
             {
                 rand = rand_gen.NextDouble();
                 if (rand >= 0.5)
-                    pick_tweak(i);  //50% chance of tweaking
+                    pick_tweak(i);  /**50% szans na przekazanie   */
 
                 else if (rand >= 0.1)
-                    pick_and_cross(i); //40% chance of crossing
+                    pick_and_cross(i); /** 40% szans skrzyżowania  */
 
                 else
-                    mutatant(i); //10% chance of new random PID
+                    mutatant(i); /** 10% szans na losowe nastawy PID */
             }
 
             for (int i = 0; i < populationSize; i++)
                 engines[i] = next_generation_engines[i];
         }
 
-        //wybór jednego osobnika z populacji oraz delikatna modyfikacja jego nastaw
+        
+        /**
+         *\fn
+         *
+         * Wybór jednego osobnika z populacji oraz delikatna modyfikacja jego nastaw
+         *
+         *            
+         */
+        
         void pick_tweak(int i)
         {
             Simulator parent = new Simulator();
@@ -101,7 +145,7 @@ namespace Genop
                 picked = false;
                 do
                 {
-                    x = (int)(rand_gen.NextDouble() * populationSize); //i can do it like this because rand_gen.NextDouble() will never return value = 1, so i will never refer to engines[populationSize]
+                    x = (int)(rand_gen.NextDouble() * populationSize); 
                     if (rand_gen.NextDouble() <= engines[x].fitness)
                     {
                         parent = engines[x];
@@ -110,11 +154,18 @@ namespace Genop
                 } while (!picked);
             }
             else
-                parent = best; // 1% chance of picking "best" to tweak
+                parent = best; 
             next_generation_engines[i] = tweak(parent);
         }
 
-        //wybieranie dwóch osobników z populacji oraz krzyżowanie ich
+        /**
+         *\fn
+         *
+         *  Wybieranie dwóch osobników z populacji oraz krzyżowanie ich.
+         *
+         *            
+         */
+       
         void pick_and_cross(int i)
         {
             Simulator parent_a = new Simulator();
@@ -151,13 +202,24 @@ namespace Genop
             next_generation_engines[i] = cross(parent_a, parent_b);
         }
 
-        //normalizacja wartości fitness wszystkich osobników tak aby były wartościami od 0 do 1
+         /**
+         *\fn
+         *
+         *     Normalizacja wartości fitness wszystkich osobników tak aby były wartościami od 0 do 1
+         *
+         *            
+         */
+    
         void normalize_fitness()
         {
             double max_fit = 0;
             double min_fit;
 
-            //evaluating maximum fitness value
+        /**
+         *
+         *  Oszacowanie maksymalnej wartości fit.
+         *         
+         */
             for (int i = 0; i < populationSize; i++)
             {
                 if (engines[i].fitness > max_fit)
@@ -171,7 +233,11 @@ namespace Genop
                 }
             }
 
-            //evaluating minimum fitness value
+        /**
+         *
+         *  Oszacowanie minimalnej wartości fit.
+         *         
+         */
             min_fit = max_fit;
             for (int i = 0; i < populationSize; i++)
             {
@@ -186,7 +252,13 @@ namespace Genop
                 }
         }
 
-        //funkcja tworząca nowy losowy organizm
+         /**
+         *\fn
+         *
+         *  Funkcja tworząca nowy losowy organizm
+         *         
+         */
+        
         void mutatant(int i)
         {
             Simulator child = new Simulator();
@@ -197,8 +269,14 @@ namespace Genop
             if (rand_gen.NextDouble() > 0.01) next_generation_engines[i] = child;
             else next_generation_engines[i] = best; // 1% chance of picking "best" as a mutant
         }
-
-        //funkcja delikatnie modyfikująca jeden organizm
+        
+        /**
+         *\fn
+         *
+         *  Funkcja delikatnie modyfikująca jeden organizm
+         *         
+         */
+        
         Simulator tweak(Simulator parent) 
         {
             Simulator child = new Simulator();
@@ -209,7 +287,13 @@ namespace Genop
             return child;
         }
 
-        //funkcja krzyrzująca dwa organizmy
+        /**
+         *\fn
+         *
+         *  Funkcja krzyrzująca dwa organizmy
+         *         
+         */
+
         Simulator cross(Simulator parent_a, Simulator parent_b)
         {
             Simulator child = new Simulator();

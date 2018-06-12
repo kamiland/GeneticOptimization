@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Genop
 {   
-    /*
+   /**
     *   Klasa Symulator wykorzystuje algorytm Rungego-Kutty do wygenerowania przebiegu obiektu
-    *	przechowuje ona również cały przebieg wraz z parametrami symulacji np. takimi jak krok solvera
+    *	przechowuje ona również cały przebieg wraz z parametrami symulacji np. takimi jak krok solvera.
+    *
+    * \version Wersja Alfa/Beta - w trakcie testowania oprogramowania.
     */
     public class Simulator
     {
@@ -17,6 +19,21 @@ namespace Genop
         double setpoint = 100;
         public double fitness = 0;
         double error_int = 0;
+
+        /**
+         * \brief Pobiera parametry silnika DC od użytkownika.
+         *
+         * Pobiera trzy wartości typu double.
+         *
+         * \param[in] objectParameters tablica parametrow silnika podana przez użytkownika lub odczytana z obiektu.
+         * 
+         * 
+         * 
+         *
+         * \attention wartości zmiennych wyskalowane są w podstawowych jednostkach układu SI
+         *            
+         */ 
+
         public void GetUserParameters(double[] objectParameters)
         {
             if(0 != objectParameters[0])
@@ -39,6 +56,20 @@ namespace Genop
                 setpoint = objectParameters[8];
         }
 
+         /**
+         * \brief 
+         *
+         * 
+         *
+         * \param[in] numberOfProbes ilość próbek danych wykorzystana do symulacji.
+         * \param[in] timeStep krok wykonywania symulacji.
+         * 
+         * \return wyznaczona na podstawie modelu, wartość prądu wirnika silnika DC
+
+         * \attention wartości zmiennych wyskalowane są w podstawowych jednostkach układu SI
+         *            
+         */
+
         public double[] Simulate(long numberOfProbes, double timeStep = 0.001, bool saveToFile = true)
         {
             System.IO.TextWriter current = null;
@@ -50,10 +81,18 @@ namespace Genop
             }
                 
    
-            // initial state
+            /** initial state   */
             RK4.x[0] = 0;
             RK4.x[1] = 0;
-            // wykonaj liczbe kroków określoną w numberOfProbes, zapisz pomiary do plików, oblicz całkę uchybu 
+
+         /**
+         *\fn
+         *
+         * \brief Kalkuluje wartość prądu i prędkości silnika DC.
+         *  Wykonaj liczbe kroków określoną w numberOfProbes, zapisz pomiary do plików, oblicz całkę uchybu 
+         *
+         */
+             wykonaj liczbe kroków określoną w numberOfProbes, zapisz pomiary do plików, oblicz całkę uchybu 
             for (int i = 0; i < numberOfProbes; i++)
             {
                 RK4.x = RK4.CalculateNextStep(PID.CalculateOutput(setpoint, RK4.x[1]), timeStep);

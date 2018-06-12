@@ -20,7 +20,12 @@ namespace Genop
     /// Logika interakcji dla klasy MainWindow.xaml
     /// </summary>
     
-        
+    /**
+     *
+     * Klasa Window implementuje główne okno aplikacji.
+     *
+     *\version Wersja alfa/Beta - oprogramowanie w trakcie wykonywania testów.
+     */    
     public partial class MainWindow : Window
     {
         PLC siemensS7 = new PLC();
@@ -29,6 +34,14 @@ namespace Genop
         long numberOfProbes = 1000;
         double timeStep = 0.001;
 
+            
+    /**
+     *
+     * Inicjalizacja okna Aplikacji
+     *
+     *
+     */ 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,13 +49,28 @@ namespace Genop
             this.Title = "Genop";
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
+            
+    /**
+     *
+     * Metoda pobierająca pozycję kursora myszy.
+     *
+     *
+     */ 
 
         private void Window_MouseMove(object sender, MouseEventArgs e)
         {
             Title = e.GetPosition(this).ToString();
         }
 
-        // po kliknięciu [auto identif.] losuje ("identyfikuje") parametry i wpisuje je do ramek w okienku
+        /** po kliknięciu [auto identif.] losuje ("identyfikuje") parametry i wpisuje je do ramek w okienku.    */
+                   
+    /**
+     *
+     * Obsługa zdarzenia uzycia przycisku rozpoczynającego autoidentyfikację rzeczywistego obiektu.
+     *
+     *
+     */ 
+
         private void AutoIdentification_Click(object sender, RoutedEventArgs e)
         {
             objectParameters = siemensS7.AutoIdentyfication();
@@ -59,7 +87,15 @@ namespace Genop
             MessageBox.Show("Identification done.");
         }
 
-        // po kliknięciu  [OK] pobiera dane z ramek usera i przypisuje do obiektu oraz do ramek wyświetlania
+        
+                   
+    /**
+     *
+     * Obsługa zdarzenia uzycia przycisku zatwierdzającego wprowadzone parametry silnika.
+     * Po kliknięciu  [OK] pobiera dane z ramek usera i przypisuje do obiektu oraz do ramek wyświetlania
+     *
+     */ 
+
         private void BtnUserParamOK_Click(object sender, RoutedEventArgs e)
         {
             objectParameters[0] = Convert.ToDouble(User_Ra.Text);
@@ -84,13 +120,21 @@ namespace Genop
             Current_Laf.Text = Convert.ToString(simulatorDC.RK4.Laf);
         }
 
-        // wywołuje symulację i otwiera nowe okno z wykresem
+        
+              
+    /**
+     *
+     * Obsługa zdarzenia uzycia przycisku rozpoczynającego symulację.
+     * Wywołuje symulację i otwiera nowe okno z wykresem.
+     *
+     */ 
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)
         {
-            //simulatorDC.Simulate(numberOfProbes, timeStep);
+            /**simulatorDC.Simulate(numberOfProbes, timeStep);
 
-            //Window1 graphWindow = new Window1();
-            //graphWindow.Show();
+            Window1 graphWindow = new Window1();
+            graphWindow.Show(); */
+            
             double[] PID;
             GeneticAlgorithm Optimization = new GeneticAlgorithm(numberOfProbes, 100, objectParameters);
             for (int i = 0; i < 30; i++)
@@ -100,7 +144,13 @@ namespace Genop
             Ki.Text = Convert.ToString(Math.Round(PID[1], 3));
             Kd.Text = Convert.ToString(Math.Round(PID[2], 3));
         }
-
+        
+    /**
+     *
+     * Obsługa zdarzenia uzycia przycisku zamykania okna.
+     *
+     *
+     */ 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             (this).Close();
