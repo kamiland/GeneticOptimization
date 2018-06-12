@@ -41,7 +41,7 @@
         <TextBox x:Name="User_B"  HorizontalAlignment="Left" Height="35" Margin="6.4,170,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
         <TextBox x:Name="User_p"  HorizontalAlignment="Left" Height="35" Margin="20,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
         <TextBox x:Name="User_Laf"  HorizontalAlignment="Left" Height="35" Margin="121,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="User_Setpoint"  HorizontalAlignment="Left" Height="35" Margin="6.4,283,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
+        <TextBox x:Name="User_Setpoint"  HorizontalAlignment="Left" Height="35" Margin="6.4,340,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
 
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="226.4,70,0,0" TextWrapping="Wrap" Text="Current Parameters" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
         <TextBox x:Name="Current_Ra" HorizontalAlignment="Left" Height="35" Margin="226.4,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
@@ -69,7 +69,14 @@
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="425.4,203,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="225.4,267,0,0" TextWrapping="Wrap" Text="p" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
         <TextBlock HorizontalAlignment="Left" Height="24" Margin="326.4,267,0,0" TextWrapping="Wrap" Text="Laf" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="17" Margin="6.4,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.483,0.505" Grid.Column="1"><Run FontWeight="Bold" Text="SETPOINT"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="17" Margin="9.4,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.483,0.505" Grid.Column="1"><Run FontWeight="Bold" Text="SETPOINT"/></TextBlock>
+        <TextBox x:Name="Kp" HorizontalAlignment="Left" Height="35" Margin="226.4,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
+        <TextBox x:Name="Ki" HorizontalAlignment="Left" Height="35" Margin="326.4,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
+        <TextBox x:Name="Kd" HorizontalAlignment="Left" Height="35" Margin="426.4,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="226.4,375,0,0" TextWrapping="Wrap" Text="Kp" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="327.4,375,0,0" TextWrapping="Wrap" Text="Ki" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="426.4,375,0,0" TextWrapping="Wrap" Text="Kd" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="225.4,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Grid.Column="1"><Run FontWeight="Bold" Text="&#x9;&#x9;    "/><Run FontWeight="Bold" Text="RESULTS"/></TextBlock>
 
 
 

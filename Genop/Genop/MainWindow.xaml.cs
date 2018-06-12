@@ -91,11 +91,14 @@ namespace Genop
 
             //Window1 graphWindow = new Window1();
             //graphWindow.Show();
-
+            double[] PID;
             GeneticAlgorithm Optimization = new GeneticAlgorithm(numberOfProbes, 100, objectParameters);
             for (int i = 0; i < 30; i++)
                 Optimization.do_one_generation();
-            Optimization.show_best();
+            PID = Optimization.show_best();
+            Kp.Text = Convert.ToString(Math.Round(PID[0], 3));
+            Ki.Text = Convert.ToString(Math.Round(PID[1], 3));
+            Kd.Text = Convert.ToString(Math.Round(PID[2], 3));
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)

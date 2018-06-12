@@ -56,13 +56,16 @@ namespace Genop
             generationCounter++;
         }
 
-        public void show_best()
+        public double[] show_best()
         {
             best.Simulate(number_of_probes, saveToFile: true);
-
+            double[] PID = { best.PID.Kp, best.PID.Ki, best.PID.Kd };
             Window1 graphWindow = new Window1();
             graphWindow.Show();
+
+            return PID;
         }
+
 
         //utworzenie nowej generacji z bieżącej generacji
         void next_generation()
