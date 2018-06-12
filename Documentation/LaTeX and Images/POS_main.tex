@@ -220,6 +220,26 @@ escapechar=@,style=customc}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \renewcommand{\theequation}{\thesection.\arabic{equation}} 
+\usepackage{listings}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\footnotesize\color{mygray}, % the style that is used for the line-numbers
+  xleftmargin=\parindent,
+  showstringspaces=false,
+  basicstyle=\normalsize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  language=C++,                 % the language of the code
+}
+\lstset{ %
+escapechar=@,style=customc}
 
 
 \begin{document}   % właściwy początek dokumentu
@@ -243,6 +263,10 @@ escapechar=@,style=customc}
 \input{chapter2}
 
 %% KOLEJNA CZESC DOKUMENTACJI %%
+
+\input{test}
+\newpage    
+\input{profiler}
 
 
 
