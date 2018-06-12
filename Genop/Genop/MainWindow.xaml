@@ -17,66 +17,67 @@
 
     <Grid Margin="0,0,-6.6,-3.8" Width="850" Height="450">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="318*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Margin="539.4,14,0,401" Width="70" RenderTransformOrigin="0.922,2.443" Click="CloseButton_Click" Grid.Column="1" />
-        <Button x:Name="AutoIdentification" Content="Automatyczna Identyfikacja" HorizontalAlignment="Left" Height="35" Margin="20,14,0,0" VerticalAlignment="Top" Width="193" Click="AutoIdentification_Click"/>
+        <Button x:Name="CloseButton" Content="Close" HorizontalAlignment="Left" Margin="535.4,15,0,399" Width="70" RenderTransformOrigin="0.922,2.443" Click="CloseButton_Click" Grid.Column="2" />
+        <Button x:Name="AutoIdentification" Content="Automatic PLC identification" HorizontalAlignment="Left" Height="35" Margin="34,33,0,0" VerticalAlignment="Top" Width="200" Click="AutoIdentification_Click" Grid.ColumnSpan="3"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="20,70,0,0" TextWrapping="Wrap" Text="Insert your parameters" VerticalAlignment="Top" Width="270" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="UserParam1"  HorizontalAlignment="Left" Height="35" Margin="20,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="UserParam2" HorizontalAlignment="Left" Height="35" Margin="121,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="UserParam3" HorizontalAlignment="Left" Height="35" Margin="6.4,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <Button x:Name="BtnUserParamOK" Content="OK" HorizontalAlignment="Left" Height="35" Margin="6.4,232,0,0" VerticalAlignment="Top" Width="70" Click="BtnUserParamOK_Click" Grid.Column="1"/>
-        <Button x:Name="BtnSimulate" Content="Simulate" HorizontalAlignment="Left" Margin="426.4,227,0,0" VerticalAlignment="Top" Width="70" Height="40" Click="BtnSimulate_Click" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Text="Optymalizacja Genetyczna" Margin="114.4,10,0,416" Grid.Column="1"/>
-        <TextBox x:Name="UserParam1_Copy"  HorizontalAlignment="Left" Height="35" Margin="20,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="UserParam2_Copy" HorizontalAlignment="Left" Height="35" Margin="121,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="UserParam3_Copy" HorizontalAlignment="Left" Height="35" Margin="6.4,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBox x:Name="User_Ra"  HorizontalAlignment="Left" Height="35" Margin="20,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="User_La" HorizontalAlignment="Left" Height="35" Margin="121,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="User_Rf" HorizontalAlignment="Left" Height="35" Margin="6.4,100,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBox x:Name="User_Lf"  HorizontalAlignment="Left" Height="35" Margin="20,170,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="User_J"  HorizontalAlignment="Left" Height="35" Margin="121,170,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="User_B"  HorizontalAlignment="Left" Height="35" Margin="6.4,170,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBox x:Name="User_p"  HorizontalAlignment="Left" Height="35" Margin="20,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="User_Laf"  HorizontalAlignment="Left" Height="35" Margin="121,232,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
-        <TextBox x:Name="User_Setpoint"  HorizontalAlignment="Left" Height="35" Margin="6.4,340,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="34,89,0,0" TextWrapping="Wrap" Text="Insert your parameters" VerticalAlignment="Top" Width="270" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="UserParam1"  HorizontalAlignment="Left" Height="35" Margin="34,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="UserParam2" HorizontalAlignment="Left" Height="35" Margin="135,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="UserParam3" HorizontalAlignment="Left" Height="35" Margin="20.4,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <Button x:Name="BtnUserParamOK" Content="OK" HorizontalAlignment="Left" Height="35" Margin="20.4,251,0,0" VerticalAlignment="Top" Width="70" Click="BtnUserParamOK_Click" Grid.Column="2"/>
+        <Button x:Name="BtnSimulate" Content="Simulate" HorizontalAlignment="Left" Margin="438.4,246,0,0" VerticalAlignment="Top" Width="70" Height="40" Click="BtnSimulate_Click" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="94.4,0,0,423" Grid.Column="2" Width="186"><Run FontWeight="Bold" FontFamily="Candara" FontSize="20" Text="Genetic Optimization"/></TextBlock>
+        <TextBox x:Name="UserParam1_Copy"  HorizontalAlignment="Left" Height="35" Margin="34,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="UserParam2_Copy" HorizontalAlignment="Left" Height="35" Margin="135,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="UserParam3_Copy" HorizontalAlignment="Left" Height="35" Margin="20.4,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBox x:Name="User_Ra"  HorizontalAlignment="Left" Height="35" Margin="34,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="User_La" HorizontalAlignment="Left" Height="35" Margin="135,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="User_Rf" HorizontalAlignment="Left" Height="35" Margin="20.4,119,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBox x:Name="User_Lf"  HorizontalAlignment="Left" Height="35" Margin="34,189,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="User_J"  HorizontalAlignment="Left" Height="35" Margin="135,189,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="User_B"  HorizontalAlignment="Left" Height="35" Margin="20.4,189,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBox x:Name="User_p"  HorizontalAlignment="Left" Height="35" Margin="34,251,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70"/>
+        <TextBox x:Name="User_Laf"  HorizontalAlignment="Left" Height="35" Margin="135,251,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="User_Setpoint"  HorizontalAlignment="Left" Height="35" Margin="20.4,359,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="226.4,70,0,0" TextWrapping="Wrap" Text="Current Parameters" VerticalAlignment="Top" Width="269" Grid.Column="1"/>
-        <TextBox x:Name="Current_Ra" HorizontalAlignment="Left" Height="35" Margin="226.4,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Current_La" HorizontalAlignment="Left" Height="35" Margin="326.4,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Current_Rf" HorizontalAlignment="Left" Height="35" Margin="426.4,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Current_Lf" HorizontalAlignment="Left" Height="35" Margin="226.4,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Current_J" HorizontalAlignment="Left" Height="35" Margin="326.4,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Current_B" HorizontalAlignment="Left" Height="35" Margin="426.4,170,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Current_p" HorizontalAlignment="Left" Height="35" Margin="226.4,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Current_Laf" HorizontalAlignment="Left" Height="35" Margin="326.4,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="238.4,90,0,0" TextWrapping="Wrap" Text="Current Parameters" VerticalAlignment="Top" Width="269" Grid.Column="2"/>
+        <TextBox x:Name="Current_Ra" HorizontalAlignment="Left" Height="35" Margin="238.4,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Current_La" HorizontalAlignment="Left" Height="35" Margin="338.4,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Current_Rf" HorizontalAlignment="Left" Height="35" Margin="438.4,119,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Current_Lf" HorizontalAlignment="Left" Height="35" Margin="238.4,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Current_J" HorizontalAlignment="Left" Height="35" Margin="338.4,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Current_B" HorizontalAlignment="Left" Height="35" Margin="438.4,189,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Current_p" HorizontalAlignment="Left" Height="35" Margin="238.4,251,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Current_Laf" HorizontalAlignment="Left" Height="35" Margin="338.4,251,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
 
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="20,135,0,0" TextWrapping="Wrap" Text="Ra" VerticalAlignment="Top" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="121,135,0,0" TextWrapping="Wrap" Text="La" VerticalAlignment="Top" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="6.4,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.Column="1"><Run Text="R"/><Run Text="f"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="20,203,0,0" TextWrapping="Wrap" Text="Lf" VerticalAlignment="Top" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="121,203,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="6.4,203,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="20,267,0,0" TextWrapping="Wrap" Text="p" VerticalAlignment="Top" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="121,267,0,0" TextWrapping="Wrap" Text="Laf" VerticalAlignment="Top" Width="70"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="225.4,135,0,0" TextWrapping="Wrap" Text="Ra" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="326.4,135,0,0" TextWrapping="Wrap" Text="La" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="425.4,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.Column="1"><Run Text="R"/><Run Text="f"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="225.4,203,0,0" TextWrapping="Wrap" Text="Lf" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="326.4,203,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="425.4,203,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="225.4,267,0,0" TextWrapping="Wrap" Text="p" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="326.4,267,0,0" TextWrapping="Wrap" Text="Laf" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="17" Margin="9.4,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.483,0.505" Grid.Column="1"><Run FontWeight="Bold" Text="SETPOINT"/></TextBlock>
-        <TextBox x:Name="Kp" HorizontalAlignment="Left" Height="35" Margin="226.4,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Ki" HorizontalAlignment="Left" Height="35" Margin="326.4,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBox x:Name="Kd" HorizontalAlignment="Left" Height="35" Margin="426.4,340,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="226.4,375,0,0" TextWrapping="Wrap" Text="Kp" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="327.4,375,0,0" TextWrapping="Wrap" Text="Ki" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="426.4,375,0,0" TextWrapping="Wrap" Text="Kd" VerticalAlignment="Top" Width="70" Grid.Column="1"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="225.4,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Grid.Column="1"><Run FontWeight="Bold" Text="&#x9;&#x9;    "/><Run FontWeight="Bold" Text="RESULTS"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="34,154,0,0" TextWrapping="Wrap" Text="Ra" VerticalAlignment="Top" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="135,154,0,0" TextWrapping="Wrap" Text="La" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="20.4,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.Column="2"><Run Text="R"/><Run Text="f"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="34,222,0,0" TextWrapping="Wrap" Text="Lf" VerticalAlignment="Top" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="135,222,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="20.4,222,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="34,286,0,0" TextWrapping="Wrap" Text="p" VerticalAlignment="Top" Width="70"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="135,286,0,0" TextWrapping="Wrap" Text="Laf" VerticalAlignment="Top" Width="70" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="236.4,154,0,0" TextWrapping="Wrap" Text="Ra" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="338.4,154,0,0" TextWrapping="Wrap" Text="La" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="436.4,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Grid.Column="2"><Run Text="R"/><Run Text="f"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="236.4,222,0,0" TextWrapping="Wrap" Text="Lf" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="338.4,222,0,0" TextWrapping="Wrap" Text="J" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="436.4,222,0,0" TextWrapping="Wrap" Text="B" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="236.4,286,0,0" TextWrapping="Wrap" Text="p" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="338.4,286,0,0" TextWrapping="Wrap" Text="Laf" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="17" Margin="23.4,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.483,0.505" Grid.Column="2"><Run FontWeight="Bold" Text="SETPOINT"/></TextBlock>
+        <TextBox x:Name="Kp" HorizontalAlignment="Left" Height="35" Margin="238.4,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Ki" HorizontalAlignment="Left" Height="35" Margin="338.4,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBox x:Name="Kd" HorizontalAlignment="Left" Height="35" Margin="438.4,359,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="70" IsReadOnly="True" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="238.4,394,0,0" TextWrapping="Wrap" Text="Kp" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="339.4,394,0,0" TextWrapping="Wrap" Text="Ki" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="438.4,394,0,0" TextWrapping="Wrap" Text="Kd" VerticalAlignment="Top" Width="70" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="236.4,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269" Grid.Column="2"><Run FontWeight="Bold" Text="&#x9;&#x9;    "/><Run FontWeight="Bold" Text="RESULTS"/></TextBlock>
 
 
 
