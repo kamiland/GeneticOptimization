@@ -1,9 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+ /**
+     * Przestrzeń nazw związana z zaimplementowanymi klasami używanymi do testów.
+     *
+     */
 namespace Genop.UnitTests
 {
-    /*
+    /**
      * Klasa wykonująca testy jednostkowe
      * niektórych z metod występujących w
      * klasie Controller.
@@ -11,7 +15,7 @@ namespace Genop.UnitTests
     [TestClass]
     public class SolverTests
     {
-        /*
+        /**
          * Metoda testująca metodę
          * calculateRotorCurrent(), kalkulującą dane
          * i zwracającą wartość liczbową
@@ -30,7 +34,7 @@ namespace Genop.UnitTests
             Assert.IsNotNull(result);
         }
 
-        /*
+        /**
          * Metoda testująca metodę
          * calculateArngularVelocity(), kalkulującą dane
          * i zwracającą wartość liczbową
@@ -49,7 +53,7 @@ namespace Genop.UnitTests
             Assert.IsNotNull(result);
         }
 
-        /*
+        /**
          * Metoda testująca metodę
          * CalculateNextStep(), kalkulującą dane
          * i zwracającą wartość liczbową

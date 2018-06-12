@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.11"/>
+<title>Aplikacja do optymalizacji nastaw regulatora silnika DC: Dokumentacja klasy Genop.GeneticAlgorithm</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Aplikacja do optymalizacji nastaw regulatora silnika DC
+   &#160;<span id="projectnumber">1.0</span>
+   </div>
+   <div id="projectbrief">Projekt oprogramowania systemu w ramach zaliczenia przedmiotu Projektowanie Oprogramowania Systemów</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.11 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search",false,'Szukaj');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="../../index.html"><span>Strona&#160;główna</span></a></li>
+      <li><a href="../../namespaces.html"><span>Przestrzenie&#160;nazw</span></a></li>
+      <li class="current"><a href="../../annotated.html"><span>Klasy</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="../../search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Szukaj" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="../../search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="../../annotated.html"><span>Lista&#160;klas</span></a></li>
+      <li><a href="../../classes.html"><span>Indeks&#160;klas</span></a></li>
+      <li><a href="../../inherits.html"><span>Hierarchia&#160;klas</span></a></li>
+      <li><a href="../../functions.html"><span>Składowe&#160;klas</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../d0/d54/namespaceGenop.html">Genop</a></li><li class="navelem"><a class="el" href="../../d2/d5e/classGenop_1_1GeneticAlgorithm.html">GeneticAlgorithm</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Metody publiczne</a> &#124;
+<a href="../../d2/d3d/classGenop_1_1GeneticAlgorithm-members.html">Lista wszystkich składowych</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja klasy Genop.GeneticAlgorithm</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Klasa <a class="el" href="../../d2/d5e/classGenop_1_1GeneticAlgorithm.html" title="Klasa GeneticAlgorithm tworzy osobniki populacji a nastepnie przeprowadza na nich optymalizację poprz...">GeneticAlgorithm</a> tworzy osobniki populacji a nastepnie przeprowadza na nich optymalizację poprzez selekcję oraz mutację.  
+ <a href="../../d2/d5e/classGenop_1_1GeneticAlgorithm.html#details">Więcej...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a87c1c56241cf2057d0cd6aa2a03356bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d5e/classGenop_1_1GeneticAlgorithm.html#a87c1c56241cf2057d0cd6aa2a03356bc">GeneticAlgorithm</a> (long _numberOfProbes, int _pupulationSize, double[] _objectParameters)</td></tr>
+<tr class="memdesc:a87c1c56241cf2057d0cd6aa2a03356bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">ilość próbek symulacji  <a href="#a87c1c56241cf2057d0cd6aa2a03356bc">Więcej...</a><br /></td></tr>
+<tr class="separator:a87c1c56241cf2057d0cd6aa2a03356bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae13852c656f1d1bcb5bd475e8e6fb111"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae13852c656f1d1bcb5bd475e8e6fb111"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>do_one_generation</b> ()</td></tr>
+<tr class="separator:ae13852c656f1d1bcb5bd475e8e6fb111"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2549319bde9ca0e5eec8fc05bbbbd1a9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2549319bde9ca0e5eec8fc05bbbbd1a9"></a>
+double[]&#160;</td><td class="memItemRight" valign="bottom"><b>show_best</b> ()</td></tr>
+<tr class="separator:a2549319bde9ca0e5eec8fc05bbbbd1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Klasa <a class="el" href="../../d2/d5e/classGenop_1_1GeneticAlgorithm.html" title="Klasa GeneticAlgorithm tworzy osobniki populacji a nastepnie przeprowadza na nich optymalizację poprz...">GeneticAlgorithm</a> tworzy osobniki populacji a nastepnie przeprowadza na nich optymalizację poprzez selekcję oraz mutację. </p>
+<p>Ostatecznie tworzona jest nowa generacja i cały cykl się powtarza aż do znalezienia zadowającego rozwiązania </p>
+</div><h2 class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a class="anchor" id="a87c1c56241cf2057d0cd6aa2a03356bc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Genop.GeneticAlgorithm.GeneticAlgorithm </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>_numberOfProbes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_pupulationSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double[]&#160;</td>
+          <td class="paramname"><em>_objectParameters</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ilość próbek symulacji </p>
+<p>Metoda optymalizująca nastawy regulatora PID</p>
+<p>Pobiera trzy argumenty</p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">long</td><td>_numberOfProbes - ilość próbek </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>_pupulationSize - rozmiar populacji na której bazuje optymalizator </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">double[]</td><td>_objectParameters - tablica z parametrami obiektu (silnika DC) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wartości nastaw PID</dd></dl>
+<dl class="section attention"><dt>Uwaga</dt><dd>wartości zmiennych wyskalowane są w podstawowych jednostkach układu SI </dd></dl>
+
+<p><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Oto graf wywołań dla tej funkcji:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d2/d5e/classGenop_1_1GeneticAlgorithm_a87c1c56241cf2057d0cd6aa2a03356bc_cgraph.png" border="0" usemap="#d2/d5e/classGenop_1_1GeneticAlgorithm_a87c1c56241cf2057d0cd6aa2a03356bc_cgraph" alt=""/></div>
+<map name="d2/d5e/classGenop_1_1GeneticAlgorithm_a87c1c56241cf2057d0cd6aa2a03356bc_cgraph" id="d2/d5e/classGenop_1_1GeneticAlgorithm_a87c1c56241cf2057d0cd6aa2a03356bc_cgraph">
+<area shape="rect" id="node2" href="../../d7/dd0/classGenop_1_1Simulator.html#a4bed492f372adb3bfb577a5caf7a143a" title="Pobiera parametry silnika DC od użytkownika. " alt="" coords="309,82,596,111"/>
+<area shape="rect" id="node3" href="../../da/d16/classGenop_1_1Solver.html#ad03d8a897aa8db437cc46b54872e021d" title="Wyznacza wartość kroku operacji numerycznej dla solvera w kolejnej iteracji.q. " alt="" coords="644,50,903,79"/>
+<area shape="rect" id="node6" href="../../d7/da2/classGenop_1_1Controller.html#aad69edf7a172c13096f9c7e048410777" title="Wyznacza sygnał sterujący regulatora PID. " alt="" coords="665,104,881,151"/>
+<area shape="rect" id="node4" href="../../da/d16/classGenop_1_1Solver.html#a284e2f18385857212e8a2cc38f14c155" title="Oblicza wartość prądu wirnika. " alt="" coords="959,5,1186,52"/>
+<area shape="rect" id="node5" href="../../da/d16/classGenop_1_1Solver.html#ac40d9b2668f551bfc3c4e2b5f054012a" title="Oblicza wartość prędkości obrotowej silnika. " alt="" coords="951,76,1195,123"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>GeneticAlgorithm.cs</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano przez &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.11
+</small></address>
+</body>
+</html>

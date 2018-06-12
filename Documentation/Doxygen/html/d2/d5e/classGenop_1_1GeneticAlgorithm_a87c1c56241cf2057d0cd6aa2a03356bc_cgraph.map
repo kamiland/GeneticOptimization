@@ -1,0 +1,7 @@
+<map id="Genop.GeneticAlgorithm.GeneticAlgorithm" name="Genop.GeneticAlgorithm.GeneticAlgorithm">
+<area shape="rect" id="node2" href="$d7/dd0/classGenop_1_1Simulator.html#a4bed492f372adb3bfb577a5caf7a143a" title="Pobiera parametry silnika DC od użytkownika. " alt="" coords="309,82,596,111"/>
+<area shape="rect" id="node3" href="$da/d16/classGenop_1_1Solver.html#ad03d8a897aa8db437cc46b54872e021d" title="Wyznacza wartość kroku operacji numerycznej dla solvera w kolejnej iteracji.q. " alt="" coords="644,50,903,79"/>
+<area shape="rect" id="node6" href="$d7/da2/classGenop_1_1Controller.html#aad69edf7a172c13096f9c7e048410777" title="Wyznacza sygnał sterujący regulatora PID. " alt="" coords="665,104,881,151"/>
+<area shape="rect" id="node4" href="$da/d16/classGenop_1_1Solver.html#a284e2f18385857212e8a2cc38f14c155" title="Oblicza wartość prądu wirnika. " alt="" coords="959,5,1186,52"/>
+<area shape="rect" id="node5" href="$da/d16/classGenop_1_1Solver.html#ac40d9b2668f551bfc3c4e2b5f054012a" title="Oblicza wartość prędkości obrotowej silnika. " alt="" coords="951,76,1195,123"/>
+</map>
