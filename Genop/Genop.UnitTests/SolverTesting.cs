@@ -3,9 +3,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Genop.UnitTests
 {
+    /*
+     * Klasa wykonująca testy jednostkowe
+     * niektórych z metod występujących w
+     * klasie Controller.
+     */
     [TestClass]
     public class SolverTests
     {
+        /*
+         * Metoda testująca metodę
+         * calculateRotorCurrent(), kalkulującą dane
+         * i zwracającą wartość liczbową
+         */
         [TestMethod]
         public void calculateRotorCurrent_Calculating_GetValue()
         {
@@ -20,6 +30,11 @@ namespace Genop.UnitTests
             Assert.IsNotNull(result);
         }
 
+        /*
+         * Metoda testująca metodę
+         * calculateArngularVelocity(), kalkulującą dane
+         * i zwracającą wartość liczbową
+         */
         [TestMethod]
         public void calculateAngularVelocity_Calculating_GetValue()
         {
@@ -34,6 +49,11 @@ namespace Genop.UnitTests
             Assert.IsNotNull(result);
         }
 
+        /*
+         * Metoda testująca metodę
+         * CalculateNextStep(), kalkulującą dane
+         * i zwracającą wartość liczbową
+         */
         [TestMethod]
         public void CalculateNextStep_Calculating_GetValue()
         {

@@ -13,6 +13,11 @@ namespace Genop.UnitTests
     [TestClass]
     public class PLCTests
     {
+        /*
+         * Metoda testująca metodę
+         * AutoIdentyfication(), kalkulującą dane
+         * i zwracającą wartość liczbową
+         */
         [TestMethod]
         public void AutoIdentyfication_Calculating_GetingValue()
         {
