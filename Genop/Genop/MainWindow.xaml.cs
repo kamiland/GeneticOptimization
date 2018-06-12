@@ -87,13 +87,14 @@ namespace Genop
         // wywołuje symulację i otwiera nowe okno z wykresem
         private void BtnSimulate_Click(object sender, RoutedEventArgs e)
         {
-            simulatorDC.Simulate(numberOfProbes, timeStep);
+            //simulatorDC.Simulate(numberOfProbes, timeStep);
 
-            Window1 graphWindow = new Window1();
-            graphWindow.Show();
+            //Window1 graphWindow = new Window1();
+            //graphWindow.Show();
 
             GeneticAlgorithm Optimization = new GeneticAlgorithm(numberOfProbes, 100, objectParameters);
-            Optimization.do_one_generation();
+            for (int i = 0; i < 30; i++)
+                Optimization.do_one_generation();
             Optimization.show_best();
         }
 

@@ -38,6 +38,8 @@ namespace Genop
             pre_error = error;
 
             controllerOutput = P + I + D;
+            if (controllerOutput > 230) controllerOutput = 230;
+            if (controllerOutput < 0) controllerOutput = 0;
 
             return controllerOutput;
         }
